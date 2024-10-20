@@ -1,29 +1,58 @@
-readme_content = """
-# Number Plate Detection System
+# 🚗 Number Plate Detection System
 
-[![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.x-blue)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
+## 📚 Project Overview
+The **Number Plate Detection System** uses OpenCV and Tesseract OCR to detect vehicle number plates from real-time video streams. It captures plate images, extracts the text from the plates, and stores the information in an Excel sheet with timestamps.
 
-## Project Overview
+Project developed under the guidance of **Dr. Gargi Shrivastav**.
 
-This project is a **Number Plate Detection System** developed using OpenCV and Tesseract OCR. The system captures images from a live video feed, detects vehicle number plates, and extracts text using Optical Character Recognition (OCR). The extracted data is saved to an Excel file, along with a timestamp for each detected plate.
+## ✨ Features
+- Real-time number plate detection using Haar Cascade.
+- OCR (Optical Character Recognition) for extracting text from plates.
+- Data logging: plate number, timestamp, and date saved in an Excel file.
+- Error correction for common OCR misreadings.
+- Graphical display using OpenCV to show the detection in action.
 
-The project was developed under the guidance of **Dr. Gargi Shrivastav**.
+## 🛠️ Installation
 
-## Features
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/shivamyadavrgipt/number-plate-detection.git
+    cd number-plate-detection
+    ```
 
-- Real-time video capture and number plate detection using Haar Cascades.
-- Image preprocessing techniques for better OCR accuracy.
-- Text extraction from the number plates using Tesseract OCR.
-- Automatic correction of common OCR errors (e.g., converting 'O' to '0', 'S' to '5').
-- Storing the plate number and timestamp in an Excel file for future reference.
-- Easy-to-use GUI interface via OpenCV for displaying the results.
+2. Install Python dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## Installation
+3. Set up Tesseract OCR:
+   - Download Tesseract OCR and install it from [here](https://github.com/tesseract-ocr/tesseract).
+   - Update the Tesseract executable path in your script:
+     ```python
+     pytesseract.pytesseract.tesseract_cmd = r'path_to_tesseract/tesseract.exe'
+     ```
 
-1. **Clone the repository:**
+4. Download the Haar Cascade:
+   - Download the Haar Cascade for number plate detection from [here](https://github.com/opencv/opencv/tree/master/data/haarcascades) and place it in the `model/` directory.
 
-   ```bash
-   git clone https://github.com/shivamyadavrgipt/number-plate-detection.git
-   cd number-plate-detection
+## 🚀 Usage
+
+1. Run the main script:
+    ```bash
+    python main.py
+    ```
+
+2. Controls:
+   - Press **S** to save the detected number plate image and extract the text.
+   - Press **Q** to exit the program.
+
+## 📂 Project Structure
+
+```bash
+├── model/
+│   └── haarcascade_russian_plate_number.xml  # Haar Cascade for plate detection
+├── plates/
+│   └── plates.xlsx  # Excel file for storing detected plates
+├── main.py          # Main Python script
+├── requirements.txt # Python dependencies
+└── README.md        # Project documentation
